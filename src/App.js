@@ -26,7 +26,7 @@ function App() {
         <Route exact path="/profile" element={<Profile />}></Route>
         <Route  path={`/posts/${userId}`} element={<Posts usid={userId} changeP={(pid)=>setPostId(pid)}/>}></Route>
         <Route  path={`/albums/${userId}`} element={<Albums usid={userId} />}></Route>
-        <Route  path={`/posts/comments/${postId}`} element={<Comments pid={postId}/>}></Route>
+        <Route  path={`/posts/${postId}/comments`} element={<Comments pid={postId}/>}></Route>
       </Routes>
     </Router>
   );

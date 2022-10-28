@@ -13,7 +13,7 @@ const Posts = (props) => {
         <td>{id}</td>
         <td>{title}</td>
         <td>{body}</td>
-        <td><Button as={Link} state={filtered} onClick={() => props.changeP(id)} to={`/posts/comments/${id}`} variant='secondary'>click</Button></td>
+        <td><Button as={Link} state={filtered} onClick={() => props.changeP(id)} to={`/posts/${id}/comments`} variant='secondary'>click</Button></td>
       </tr>
     })
     useEffect(()=> {
