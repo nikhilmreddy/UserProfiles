@@ -27,7 +27,7 @@ const Home = ({ change }) => {
           <td>{username}</td>
           <td>{address.city}</td>
           <td>{company.name}</td>
-          <td>  
+          <td>
             <Dropdown>
               <Dropdown.Toggle
                 variant="success"
@@ -42,7 +42,9 @@ const Home = ({ change }) => {
                 >
                   Post
                 </Dropdown.Item>
-                <Dropdown.Item as={Link} to={`/album/${id}`}>Album</Dropdown.Item>
+                <Dropdown.Item as={Link} onclick={()=>change(id)} to={`/albums/${id}`}>
+                  Album
+                </Dropdown.Item>
               </Dropdown.Menu>
             </Dropdown>
           </td>

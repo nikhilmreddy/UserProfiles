@@ -1,8 +1,7 @@
 import React, { useState, useEffect } from "react";
-import Table from "react-bootstrap/Table";
 import paginationFactory from "react-bootstrap-table2-paginator";
 import BootstrapTable from "react-bootstrap-table-next";
-import * as ReactBootStrap from "react-bootstrap";
+
 
 
 const Todo = () => {

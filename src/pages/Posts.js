@@ -1,15 +1,11 @@
 import React, { useState,useEffect } from 'react'
-import Table from "react-bootstrap/Table";
+import {Table,Button} from "react-bootstrap";
+import { Link } from 'react-router-dom';
 
-import BootstrapTable from 'react-bootstrap-table-next';
-import paginationFactory from 'react-bootstrap-table2-paginator';
-import * as ReactBootStrap from "react-bootstrap"
-
-const Posts = ({usid}) => {
+const Posts = (props) => {
     const [post,setPost]=useState([])
-
     const filtered = post.filter(item=> {
-      return usid===item.userId;
+      return props.usid===item.userId;
     })
 
     const content=filtered.map(({id,title,body})=> {
@@ -17,6 +13,7 @@ const Posts = ({usid}) => {
         <td>{id}</td>
         <td>{title}</td>
         <td>{body}</td>
+        <td><Button as={Link} state={filtered} onClick={() => props.changeP(id)} to={`/posts/comments/${id}`} variant='secondary'>click</Button></td>
       </tr>
     })
     useEffect(()=> {
@@ -31,17 +28,19 @@ const Posts = ({usid}) => {
   return (
     <>
     <div>
-      <h1>User {usid}</h1>
+      <h1>User {props.usid}</h1>
         <Table striped bordered hover responsive>
           <thead>
             <tr>
               <th>S.ID</th>
               <th>Title</th>
               <th>Content</th>
+              <th>Comments</th>
             </tr>
           </thead>
           <tbody>{content}</tbody>
         </Table>
+
       </div>
     </>
   )
